@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+		.target-blue{background-color: cornflowerblue}
+    .target {background-color: red}
+  </style>
+</head>
+<body>
+  <ul>
+    <th:block th:each="item : ${list}">
+      <li>
+        <a th:href="@{/sample/exView/{sno}(sno=${item.sno})}">
+        [[${#numbers.formatInteger(item.sno, 5)}]] --- [[${#temporals.format(item.regTime, 'yyyy/MM/dd')}]]
+        </a>
+      </li>
+    </th:block>
+  </ul>
+</body>
+</html>
